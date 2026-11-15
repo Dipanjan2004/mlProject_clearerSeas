@@ -1,0 +1,13 @@
+setup,classifier,accuracy,f1
+"Raw image, no segmentation",SVM,0.5791806806204955,0.5394817460964622
+"Raw image, no segmentation",Random Forest,0.6159291807712114,0.5608110308253387
+"Raw image, no segmentation",KNN,0.5102135196357286,0.4784356663574025
+Raw image + segmentation,SVM,0.5367583159682827,0.5002484522528623
+Raw image + segmentation,Random Forest,0.5746995702644926,0.5415697151351978
+Raw image + segmentation,KNN,0.5307407359766642,0.5060617418397678
+"Preprocessed, no segmentation",SVM,0.632826469158671,0.5903144350149534
+"Preprocessed, no segmentation",Random Forest,0.665283620569532,0.6288664918489001
+"Preprocessed, no segmentation",KNN,0.5922406246293747,0.5625930762589914
+Preprocessing + segmentation (full),SVM,0.6583103409288645,0.621942053948888
+Preprocessing + segmentation (full),Random Forest,0.6398139905808973,0.6043399120538789
+Preprocessing + segmentation (full),KNN,0.592079047288865,0.5624598735764116

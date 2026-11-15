@@ -1,0 +1,8 @@
+{
+  "final_model": "SVM",
+  "test_accuracy": 0.5294117647058824,
+  "test_f1": 0.5184488981771636,
+  "random_split_accuracy": 0.8861111111111111,
+  "features": 58,
+  "pca_components": 25
+}
