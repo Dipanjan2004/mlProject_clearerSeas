@@ -1,0 +1,6 @@
+method,IoU,Dice,Precision,Fish
+Bounding box only,0.5616,0.7108,0.5616,3048
+"otsu, raw",0.5446,0.6709,0.8491,3048
+"kmeans, raw",0.5459,0.664,0.779,3048
+"otsu, enhanced",0.5464,0.6723,0.8417,3048
+"kmeans, enhanced",0.5447,0.6643,0.7802,3048
