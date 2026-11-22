@@ -33,7 +33,7 @@ An ablation study measures how much preprocessing and segmentation improve the c
 | `evaluate.py` | Enhancement quality on UIEB, segmentation quality on SUIM and on the Brackish crops |
 | `predict.py` | Classifies one animal and shows every step |
 | `app.py` | Streamlit demo |
-| `docs/` | Synopsis and syllabus |
+| `docs/` | Synopsis, syllabus, project report, syllabus mapping and viva questions |
 
 ## How to run
 
@@ -51,3 +51,29 @@ streamlit run app.py       # demo in the browser
 
 The trained model, the results and a few demo frames are already in the repository, so `predict.py` and
 `app.py` work without running the other steps.
+
+## Results
+
+**Ablation study** (accuracy in 5-fold cross-validation on the 68 training videos; every fold holds whole videos):
+
+| Setup | SVM | Random Forest | KNN | Best macro-F1 |
+|---|---|---|---|---|
+| Raw image, no segmentation | 57.9 % | 61.6 % | 51.0 % | 0.561 |
+| Raw image + segmentation | 53.7 % | 57.5 % | 53.1 % | 0.542 |
+| Preprocessed, no segmentation | 63.3 % | 66.5 % | 59.2 % | 0.629 |
+| Preprocessing + segmentation (full) | 65.8 % | 64.0 % | 59.2 % | 0.622 |
+
+Preprocessing gives the largest gain. Segmentation does not help on raw crops, where the masks are unreliable,
+but it helps the SVM on preprocessed crops.
+
+**Final model:** the SVM on the full pipeline (best cross-validation macro-F1), trained on the 68 training videos
+and tested once on 16 other videos: **52.9 % accuracy**, macro-F1 0.518 (guessing gives 16.7 %). With a random
+split of the same crops the accuracy would be 88.6 %, because almost identical frames of one video end up in both
+sets.
+
+**Enhancement on UIEB** (890 images): SSIM against the reference images 0.766 → 0.772, entropy 6.87 → 7.41 bits
+(reference images 7.51), RMS contrast 0.140 → 0.199 (reference images 0.208).
+
+**Segmentation:** on 3,048 hand-labelled SUIM fish the Otsu masks reach an IoU of 0.546 and are 84 % fish, against
+56 % for the plain bounding box. On the Brackish crops segmentation falls back to the whole box for 8.7 % of the
+raw crops but only 3.7 % of the enhanced crops.
