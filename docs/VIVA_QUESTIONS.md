@@ -256,3 +256,9 @@ instead of classifying a single frame.
 **58. How long does everything take?**
 `prepare_data.py` 10 to 20 minutes depending on the internet speed (it downloads about 2.5 GB and enhances
 1,710 frames), `train.py` about 30 seconds, `evaluate.py` about 4 minutes.
+
+**59. Did anything change from your synopsis?**
+The methods are the same. Two practical details changed: segmentation is measured on the public SUIM masks instead
+of masks we would have drawn by hand, and the train/test split keeps whole videos together because neighbouring
+frames are almost identical. Everything runs on a laptop, so Google Colab was not needed. The synopsis now shows
+real sample results instead of the simulated scene used in the proposal.
